@@ -1,0 +1,739 @@
+/* ===== الألوان في مكان واحد ===== */
+:root {
+  --main: #7C3AED;        /* بنفسجي حيوي */
+  --main-dark: #5B21B6;
+  --pink: #EC4899;        /* وردي */
+  --accent: #F97316;      /* برتقالي */
+  --yellow: #FDE047;      /* أصفر */
+  --dark: #1F1147;        /* كحلي غامق للكلام */
+  --light: #FAF5FF;       /* خلفية الصفحة */
+  --white: #FFFFFF;
+  --good: #16A34A;
+  --bad: #DC2626;
+  --warn: #F59E0B;
+  --gray: #E9D5FF;
+  --gradient: linear-gradient(135deg, #7C3AED, #EC4899);
+}
+
+/* ===== إعدادات عامة ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.8;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== الشريط العلوي ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--white);
+  border-bottom: 3px solid var(--main);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.navbar nav a {
+  color: var(--dark);
+  text-decoration: none;
+  margin-right: 16px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.navbar nav a:hover {
+  background: var(--gray);
+  color: var(--main-dark);
+}
+
+/* ===== الأزرار ===== */
+.btn {
+  display: inline-block;
+  background: var(--gradient);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 30px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  transition: transform 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== الصفحة الرئيسية ===== */
+.hero {
+  text-align: center;
+  padding: 56px 20px;
+  margin-bottom: 28px;
+  background: var(--gradient);
+  color: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+}
+
+.hero h1 {
+  font-size: 34px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 28px;
+}
+
+.hero .btn {
+  background: var(--yellow);
+  color: var(--dark);
+  font-size: 18px;
+  padding: 14px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* ===== الكروت ===== */
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  border-top: 5px solid var(--main);
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(31, 17, 71, 0.08);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card:nth-child(2) {
+  border-top-color: var(--pink);
+}
+
+.card:nth-child(3) {
+  border-top-color: var(--accent);
+}
+
+.card h3 {
+  color: var(--main-dark);
+  margin-bottom: 6px;
+}
+
+/* ===== عناوين الأقسام ===== */
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  margin: 36px 0 16px;
+  color: var(--main-dark);
+}
+
+/* ===== صفحة النصايح ===== */
+.tips h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--main-dark);
+}
+
+.tips .card {
+  text-align: right;
+  margin-bottom: 16px;
+}
+
+.tips .btn {
+  display: block;
+  width: fit-content;
+  margin: 24px auto 0;
+}
+
+/* ===== صور وفيديو (للصفحات الجديدة) ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(31, 17, 71, 0.15);
+}
+
+.video-box {
+  margin: 20px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(31, 17, 71, 0.15);
+}
+
+.video-box video,
+.video-box iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+.page-hero {
+  text-align: center;
+  padding: 36px 16px;
+  margin-bottom: 20px;
+  background: var(--gradient);
+  color: var(--white);
+  border-radius: 20px;
+}
+
+/* ===== صفحة المحاكاة: شريط المراحل ===== */
+.stages {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.stages span {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  padding: 8px 4px;
+  border-radius: 10px;
+  background: var(--gray);
+  color: var(--main-dark);
+}
+
+.stages span.active {
+  background: var(--gradient);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.stages span.done {
+  background: #DCFCE7;
+  color: var(--good);
+}
+
+/* ===== المؤشر والعدّاد ===== */
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.meter-box {
+  flex: 1;
+}
+
+.meter-box p {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.meter {
+  height: 12px;
+  background: var(--gray);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#meter-fill {
+  width: 50%;
+  height: 100%;
+  background: var(--good);
+  border-radius: 6px;
+  transition: width 0.4s;
+}
+
+#timer {
+  background: var(--yellow);
+  color: var(--dark);
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 12px;
+}
+
+/* ===== الموقف والاختيارات ===== */
+.scenario {
+  background: var(--white);
+  border-right: 6px solid var(--pink);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 16px;
+  font-size: 19px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(31, 17, 71, 0.08);
+}
+
+#choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.choice {
+  background: var(--white);
+  border: 2px solid var(--gray);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: right;
+  color: var(--dark);
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.choice:hover:not(:disabled) {
+  border-color: var(--main);
+  transform: translateX(-4px);
+}
+
+.choice.good {
+  background: #DCFCE7;
+  border-color: var(--good);
+}
+
+.choice.bad {
+  background: #FEE2E2;
+  border-color: var(--bad);
+}
+
+.choice.ok {
+  background: #FEF3C7;
+  border-color: var(--warn);
+}
+
+/* ===== السبب ===== */
+.reason {
+  background: var(--white);
+  border-right: 5px solid var(--main);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+/* ===== العناصر المخفية ===== */
+.hidden {
+  display: none !important;
+}
+
+/* ===== زر أنا متوتر ===== */
+.nervous {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: 14px;
+  padding: 13px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+}
+
+/* ===== نافذة التنفس ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 17, 71, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 10;
+}
+
+.modal-box {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-box h3 {
+  color: var(--main);
+  margin-bottom: 10px;
+}
+
+#breath-text {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 12px 0;
+  color: var(--pink);
+}
+
+#tip-text {
+  margin-bottom: 20px;
+}
+
+/* ===== صفحة النتيجة ===== */
+.result {
+  text-align: center;
+}
+
+.score {
+  font-size: 72px;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 12px 0;
+}
+
+#score-message {
+  margin-bottom: 24px;
+  font-size: 18px;
+}
+
+#stage-results {
+  list-style: none;
+  text-align: right;
+  margin: 12px 0 28px;
+}
+
+#stage-results li {
+  background: var(--white);
+  border-right: 5px solid var(--main);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+
+/* ===== الفوتر ===== */
+footer {
+  text-align: center;
+  padding: 24px;
+  margin-top: 24px;
+  background: var(--dark);
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* ===== الموبايل ===== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .stages span {
+    font-size: 11px;
+  }
+
+  .scenario {
+    font-size: 16px;
+  }
+}
+
+/* ===== إضافات الصفحات الجديدة ===== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.step {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px 18px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(31, 17, 71, 0.08);
+}
+
+.step .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.step h3 {
+  color: var(--main-dark);
+}
+
+.media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  margin: 20px 0;
+  padding: 16px;
+  text-align: center;
+  border: 3px dashed var(--main);
+  border-radius: 16px;
+  color: var(--main-dark);
+  font-weight: 700;
+  background: var(--white);
+}
+
+.cta {
+  text-align: center;
+  margin: 36px 0 8px;
+  padding: 32px 16px;
+  background: var(--white);
+  border-radius: 20px;
+  border: 3px solid var(--yellow);
+}
+
+.cta h2 {
+  color: var(--main-dark);
+}
+
+.cta p {
+  margin-bottom: 16px;
+}
+
+.about-box {
+  background: var(--white);
+  border-right: 6px solid var(--main);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(31, 17, 71, 0.08);
+}
+
+.about-box h2 {
+  color: var(--main-dark);
+  margin-bottom: 6px;
+}
+
+.about-box ul {
+  padding-right: 20px;
+}
+
+details.faq {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 14px rgba(31, 17, 71, 0.08);
+}
+
+details.faq summary {
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--main-dark);
+}
+
+details.faq p {
+  margin-top: 8px;
+}
+
+.breath-wrap {
+  text-align: center;
+  margin: 16px 0 24px;
+}
+
+.breath-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: var(--white);
+  font-weight: 700;
+  animation: breathe 12s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%   { transform: scale(0.6); }
+  33%  { transform: scale(1); }
+  66%  { transform: scale(1); }
+  100% { transform: scale(0.6); }
+}
+
+/* ===== الفيديو المتحرك في الصفحة الرئيسية ===== */
+.intro {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 240px;
+  margin: 20px 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--gradient);
+  color: var(--white);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+}
+
+.intro .scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+
+.intro .scene.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.intro .big {
+  font-size: clamp(18px, 4.5vw, 34px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.intro .scene.show .big {
+  animation: pop 0.7s ease-out;
+}
+
+@keyframes pop {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.intro .bus {
+  font-size: clamp(36px, 9vw, 64px);
+}
+
+.intro .scene.show .bus {
+  animation: drive 4s linear infinite;
+}
+
+@keyframes drive {
+  from { transform: translateX(150%); }
+  to   { transform: translateX(-150%); }
+}
+
+.intro .mini-meter {
+  width: 60%;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.intro .mini-fill {
+  width: 20%;
+  height: 100%;
+  background: var(--yellow);
+  border-radius: 8px;
+}
+
+.intro .scene.show .mini-fill {
+  animation: fillup 4s ease-in-out forwards;
+}
+
+@keyframes fillup {
+  from { width: 20%; }
+  to   { width: 90%; }
+}
+
+.intro .intro-logo {
+  height: 52px;
+  padding: 8px 14px;
+  background: var(--white);
+  border-radius: 14px;
+}
+
+.intro .play-btn {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  z-index: 3;
+  background: var(--yellow);
+  color: var(--dark);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.intro.playing .play-btn {
+  display: none;
+}
+
+.intro.ended .play-btn {
+  inset: auto;
+  top: 10px;
+  left: 10px;
+  margin: 0;
+  padding: 6px 16px;
+  font-size: 13px;
+}
+
+.intro-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#intro-bar {
+  height: 100%;
+  width: 0;
+  background: var(--yellow);
+}

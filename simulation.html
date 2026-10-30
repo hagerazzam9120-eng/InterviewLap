@@ -1,0 +1,67 @@
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المحاكاة | InterviewLab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="image/icon (1).svg">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <img src="image/logo (1).svg" alt="InterviewLab" height="40">
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="tips.html">نصايح</a>
+    </nav>
+  </header>
+
+  <main class="sim">
+
+    <div class="stages">
+      <span id="stage-1">الليلة قبلها</span>
+      <span id="stage-2">الصبح</span>
+      <span id="stage-3">الاستقبال</span>
+      <span id="stage-4">المقابلة</span>
+      <span id="stage-5">بعدها</span>
+    </div>
+
+    <div class="status">
+      <div class="meter-box">
+        <p>انطباع الشركة عنك</p>
+        <div class="meter"><div id="meter-fill"></div></div>
+      </div>
+      <div id="timer">00:30</div>
+    </div>
+
+    <div class="scenario">
+      <p id="scenario-text">هنا يظهر الموقف</p>
+    </div>
+
+    <div id="choices"></div>
+
+    <div id="reason" class="reason hidden"></div>
+
+    <button id="next-btn" class="btn hidden">التالي</button>
+
+    <button id="nervous-btn" class="nervous">أنا متوتر، ساعدني</button>
+
+  </main>
+
+  <div id="breathing" class="modal hidden">
+    <div class="modal-box">
+      <h3>خد نفس عميق</h3>
+      <p id="breath-text">شهيق... 4 ثواني</p>
+      <p id="tip-text"></p>
+      <button id="close-breath" class="btn">أنا تمام، كمّل</button>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
+  

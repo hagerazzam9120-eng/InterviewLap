@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تدرّب على الانترفيو | InterviewLab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="image/icon (1).svg">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html"><img src="image/logo (1).svg" alt="InterviewLab" height="40"></a>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="about.html">عن المشروع</a>
+      <a href="tips.html">نصايح</a>
+      <a href="faq.html">أسئلة</a>
+      <a href="calm.html">تهدئة</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>اتدرّب على الانترفيو قبل ما تدخله بجد</h1>
+      <p>مواقف حقيقية، قرارات بتأثر على انطباعهم عنك، وتقييم يشرح لك أخطاءك.</p>
+      <a href="simulation.html" class="btn">ابدأ التدريب</a>
+    </section>
+
+    <h2 class="section-title">إزاي بيشتغل؟</h2>
+    <section class="steps">
+      <div class="step"><span class="num">1</span><h3>عيش اليوم كله</h3><p>من الليلة اللي قبل الانترفيو لحد ما ترجع البيت.</p></div>
+      <div class="step"><span class="num">2</span><h3>اختار ردّك</h3><p>3 اختيارات في كل موقف، ووقتك محدود.</p></div>
+      <div class="step"><span class="num">3</span><h3>اعرف أخطاءك</h3><p>تقييم بيشرح ليه ردّك كويس أو وحش.</p></div>
+    </section>
+
+    <h2 class="section-title">شوف الفكرة في 25 ثانية</h2>
+    <!-- لما يجهز الفيديو، شيلي الـ div اللي تحت وحطي مكانه: -->
+    <!-- <div class="video-box"><video src="videos/intro.mp4" controls></video></div> -->
+    <div class="intro" id="intro">
+      <div class="scene">
+        <p class="big">بكرة عندك انترفيو؟</p>
+        <p>والتوتر واخد كل تفكيرك...</p>
+      </div>
+
+      <div class="scene">
+        <div class="bus">🚌</div>
+        <p class="big">المواصلات واقفة في الزحمة!</p>
+        <p>هتتصرف إزاي؟</p>
+      </div>
+
+      <div class="scene">
+        <div class="mini-meter"><div class="mini-fill"></div></div>
+        <p class="big">كل قرار بيأثر على انطباعهم عنك</p>
+        <p>وإنت بتتدرّب، مش بتغامر</p>
+      </div>
+
+      <div class="scene">
+        <img src="image/logo (1).svg" alt="InterviewLab" class="intro-logo">
+        <p class="big">اتدرّب قبل ما تدخل</p>
+        <a href="simulation.html" class="btn">ابدأ التدريب</a>
+      </div>
+
+      <button class="play-btn" id="intro-play">▶ شغّل الفيديو</button>
+      <div class="intro-progress"><div id="intro-bar"></div></div>
+    </div>
+
+    <h2 class="section-title">إيه اللي يميّزنا؟</h2>
+    <section class="features">
+      <div class="card">
+        <h3>رحلة يوم الانترفيو</h3>
+        <p>مش بس أسئلة، لكن كل اللي بيحصل قبل وبعد المقابلة.</p>
+      </div>
+      <div class="card">
+        <h3>مؤشر الانطباع</h3>
+        <p>كل قرار بتاخده بيرفع أو بينزّل انطباع الشركة عنك.</p>
+      </div>
+      <div class="card">
+        <h3>زر "أنا متوتر"</h3>
+        <p>تمرين تنفس ونصيحة سريعة وقت الضغط.</p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>جاهز تجرّب؟</h2>
+      <p>الموقع مجاني وبياخد 10 دقايق بس.</p>
+      <a href="simulation.html" class="btn">ابدأ دلوقتي</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>InterviewLab © 2026 | تدرّب قبل ما تدخل</p>
+  </footer>
+
+  <script>
+    (function () {
+      var intro = document.getElementById("intro");
+      if (!intro) return;
+
+      var scenes = intro.querySelectorAll(".scene");
+      var playBtn = document.getElementById("intro-play");
+      var bar = document.getElementById("intro-bar");
+      var durations = [5000, 6000, 6000, 8000]; // مدة كل مشهد بالمللي ثانية
+      var timers = [];
+
+      function showScene(i) {
+        scenes.forEach(function (s, j) {
+          s.classList.toggle("show", j === i);
+        });
+      }
+
+      function clearTimers() {
+        timers.forEach(function (t) { clearTimeout(t); });
+        timers = [];
+      }
+
+      function play() {
+        clearTimers();
+        intro.classList.add("playing");
+        intro.classList.remove("ended");
+
+        var total = 0;
+        durations.forEach(function (d, i) {
+          timers.push(setTimeout(function () { showScene(i); }, total));
+          total = total + d;
+        });
+
+        // شريط التقدم
+        bar.style.transition = "none";
+        bar.style.width = "0%";
+        void bar.offsetWidth;
+        bar.style.transition = "width " + total + "ms linear";
+        bar.style.width = "100%";
+
+        // لما الفيديو يخلص
+        timers.push(setTimeout(function () {
+          intro.classList.remove("playing");
+          intro.classList.add("ended");
+          playBtn.textContent = "↻ شغّل تاني";
+        }, total));
+      }
+
+      showScene(0);
+      playBtn.addEventListener("click", play);
+    })();
+  </script>
+
+</body>
+</html>
